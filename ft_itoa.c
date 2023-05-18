@@ -1,4 +1,3 @@
-
 #include "libft.h"
 
 int len_calc(int n)
@@ -21,17 +20,18 @@ char *ft_itoa(int n)
     int len;
     int signe = 1;
 
-    if (n = -2147483648)
+    if (n == -2147483648)
         return ("-2147483648");
-
-    len = len_calc(n);
 
     if (n < 0)
     {
         n = -n;
-        len++;
-        signe = -1
+        signe = -1;
+        len = len_calc(n) + 1;
     }
+    else
+        len = len_calc(n);
+
     res = (char *)malloc(sizeof(char) * (len + 1));
 
     if (!res)
@@ -47,7 +47,8 @@ char *ft_itoa(int n)
     res[len] = '\0';
     while (n > 0)
     {
-        res[--len] = (n % 10) + '0';
+        len--;
+        res[len] = (n % 10) + '0';
         n /= 10;
     }
     if (signe == -1)

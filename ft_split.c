@@ -41,6 +41,17 @@ char	*copie(const char *s, char c)
 	return (mot);
 }
 
+char	**free_res(char **res)
+{
+	while (*res)
+	{
+		free(*res);
+		res ++;
+	}
+	free(res);
+	return (NULL);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	char	**res;
@@ -58,12 +69,7 @@ char	**ft_split(char const *s, char c)
 		{
 			res[i] = copie(s, c);
 			if (!res[i])
-			{
-				while (i--)
-					free(res[i]);
-				free(res);
-				return (NULL);
-			}
+				return (free_res(res));
 			i++;
 			while (*s && *s != c)
 				s++;

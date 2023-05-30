@@ -9,7 +9,7 @@ int ft_atoi(const char *str)
     decimal = 0;
     while (*local_str == 32 || (*local_str >= 9 && *local_str <= 13))
         local_str++;
-    while (*local_str == '-' || *local_str == '+')
+    if (*local_str == '-' || *local_str == '+')
     {
         if (*local_str == '-')
             signe = -signe;

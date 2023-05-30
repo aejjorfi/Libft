@@ -3,7 +3,7 @@
 void ft_bzero(void *p, size_t c)
 {
     unsigned char *b;
-    
+
     b = p;
     while (c--)
     {

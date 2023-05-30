@@ -5,8 +5,6 @@ size_t ft_strlen(const char *s)
 
     c = 0;
     while (*s++)
-    {
         c++;
-    }
     return c;
 }

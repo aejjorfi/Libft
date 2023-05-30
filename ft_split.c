@@ -1,6 +1,6 @@
 #include "libft.h"
 
-int mots(const char *s, char c)
+int mot(const char *s, char c)
 {
     int cpt;
 
@@ -52,7 +52,7 @@ char **ft_split(char const *s, char c)
     int mots;
 
     i = 0;
-    mots = mot(const char s, char c);
+    mots = mot(s, c);
     res = (char **)malloc(sizeof(char *) * (mots + 1));
 
     if (!res)

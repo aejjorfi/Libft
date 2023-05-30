@@ -43,13 +43,13 @@ obj = $(src:.c=.o)
 all : $(NAME)
 
 $(NAME) : $(obj)
-	$(cc) $(flags) -c $(src) 
-	ar rc $(NAME) $(obj)
+	@$(cc) $(flags) -c $(src) 
+	@ar rc $(NAME) $(obj)
 
 clean :
-	rm -f *.o
+	@rm -f *.o
 
-fclean :
-	rm -f $(NAME)
+fclean : clean
+	@rm -f $(NAME)
 
 re : fclean all

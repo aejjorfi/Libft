@@ -1,7 +1,7 @@
 
 #include "libft.h"
 
-int check(char c, char *s)
+int check(char c, const char *s)
 {
     while (*s)
     {

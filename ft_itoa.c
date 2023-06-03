@@ -6,7 +6,10 @@ int	len_calc(int n)
 
 	cpt = 1;
 	if (n < 0)
+	{
 		cpt ++;
+		n = -n;
+	}
 	while (n >= 10)
 	{
 		n /= 10;

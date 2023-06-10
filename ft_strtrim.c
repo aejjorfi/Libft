@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aejjorfi <aejjorfi@student.1337.ma>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/10 15:16:17 by aejjorfi          #+#    #+#             */
+/*   Updated: 2023/06/10 15:16:17 by aejjorfi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 int	check(char c, const char *s)
@@ -25,7 +37,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	while (s1[debut] && check(s1[debut], set))
 		debut++;
 	fin = ft_strlen(s1);
-	while (check(s1[fin - 1], set) && debut < fin)
+	while (fin && check(s1[fin - 1], set) && debut < fin)
 		fin--;
 	res = (char *)malloc((fin - debut + 1) * sizeof(char));
 	if (!res)

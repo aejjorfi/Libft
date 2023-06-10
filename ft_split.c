@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aejjorfi <aejjorfi@student.1337.ma>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/10 15:15:27 by aejjorfi          #+#    #+#             */
+/*   Updated: 2023/06/10 15:15:27 by aejjorfi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 int	mot(const char *s, char c)
@@ -43,10 +55,12 @@ char	*copie(const char *s, char c)
 
 char	**free_res(char **res)
 {
+	if (!res)
+		return (NULL);
 	while (*res)
 	{
 		free(*res);
-		res ++;
+		res++;
 	}
 	free(res);
 	return (NULL);
@@ -59,6 +73,8 @@ char	**ft_split(char const *s, char c)
 	int		mots;
 
 	i = 0;
+	if (!s)
+		return (NULL);
 	mots = mot(s, c);
 	res = (char **)malloc(sizeof(char *) * (mots + 1));
 	if (!res)
@@ -68,15 +84,13 @@ char	**ft_split(char const *s, char c)
 		if (*s != c)
 		{
 			res[i] = copie(s, c);
-			if (!res[i])
+			if (!res[i++])
 				return (free_res(res));
-			i++;
 			while (*s && *s != c)
 				s++;
 		}
 		else
 			s++;
 	}
-	res[i] = (NULL);
-	return (res);
+	return (res[i] = (NULL), res);
 }

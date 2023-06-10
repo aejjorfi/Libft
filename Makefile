@@ -37,6 +37,7 @@ src =	ft_memset.c \
 		ft_putstr_fd.c \
 		ft_putendl_fd.c \
 		ft_putnbr_fd.c \
+		ft_striteri.c
 
 obj = $(src:.c=.o)
 
@@ -44,7 +45,7 @@ all : $(NAME)
 
 $(NAME) : $(obj)
 	@$(cc) $(flags) -c $(src) 
-	@ar rc $(NAME) $(obj)
+	@ar -rc $(NAME) $(obj)
 
 clean :
 	@rm -f *.o
